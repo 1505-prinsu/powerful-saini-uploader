@@ -42,9 +42,9 @@ import ffmpeg
 # Initialize the bot
 bot = Client(
     "bot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN
+    api_id=27433400,
+    api_hash="1a286620de5ffe0a7d9b57e604293555",
+    bot_token="7584475176:AAGivzJmECCiYwHL2hSzyY16o86dtsdREfo"
 )
 
 AUTH_USER = os.environ.get('AUTH_USERS', '6201066540').split(',')
@@ -568,13 +568,13 @@ async def txt_handler(bot: Client, m: Message):
 
             elif "https://cpvod.testbook.com/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = 'https://dragoapi.vercel.app/classplus?link=' + url
+                url = 'https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8'
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
 
             elif "classplusapp.com/drm/" in url:
-                url = 'https://dragoapi.vercel.app/classplus?link=' + url
+                url = 'https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8'
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
@@ -586,11 +586,11 @@ async def txt_handler(bot: Client, m: Message):
                 url = response.json()['url']  
 
             elif 'videos.classplusapp' in url or "tencdn.classplusapp" in url or "webvideos.classplusapp.com" in url:
-                url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers={'x-access-token': f'{token_cp}'}).json()['url']
+                url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8', headers={'x-access-token': f'{token_cp}'}).json()['url']
             
             elif 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url or 'media-cdn-a.classplusapp.com' in url: 
                 headers = { 'x-access-token': f'{token_cp}',"X-CDN-Tag": "empty"}
-                response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers=headers)
+                response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8', headers=headers)
                 url   = response.json()['url']
 
             elif "childId" in url and "parentId" in url:
@@ -600,7 +600,7 @@ async def txt_handler(bot: Client, m: Message):
                 url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
 
             if ".pdf*" in url:
-                url = f"https://dragoapi.vercel.app/pdf/{url}"
+                url = f"https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8"
             if ".zip" in url:
                 url = f"https://video.pablocoder.eu.org/appx-zip?url={url}"
                 
@@ -913,13 +913,13 @@ async def text_handler(bot: Client, m: Message):
 
             elif "https://cpvod.testbook.com/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = 'https://dragoapi.vercel.app/classplus?link=' + url
+                url = 'https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8'
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
 
             elif "classplusapp.com/drm/" in url:
-                url = 'https://dragoapi.vercel.app/classplus?link=' + url
+                url = 'https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8'
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
@@ -931,11 +931,11 @@ async def text_handler(bot: Client, m: Message):
                 url = response.json()['url']  
 
             elif 'videos.classplusapp' in url or "tencdn.classplusapp" in url or "webvideos.classplusapp.com" in url:
-                url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers={'x-access-token': f'{token_cp}'}).json()['url']
+                url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8', headers={'x-access-token': f'{token_cp}'}).json()['url']
             
             elif 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url or 'media-cdn-a.classplusapp.com' in url: 
                 headers = { 'x-access-token': f'{token_cp}',"X-CDN-Tag": "empty"}
-                response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers=headers)
+                response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8', headers=headers)
                 url   = response.json()['url']
 
             elif "childId" in url and "parentId" in url:
@@ -956,9 +956,9 @@ async def text_handler(bot: Client, m: Message):
                 #print(url)
 
             if ".pdf*" in url:
-                url = f"https://dragoapi.vercel.app/pdf/{url}"
+                url = f"https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8"
             if ".zip" in url:
-                url = f"https://video.pablocoder.eu.org/appx-zip?url={url}"
+                url = f"https://video.pablocoder.eu.org/appx-zip?url=https://media-cdn.classplusapp.com/drm/68a9797a9973451ecea07191/playlist.m3u8"
                 
             elif 'encrypted.m' in url:
                 appxkey = url.split('*')[1]
